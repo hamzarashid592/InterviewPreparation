@@ -1,3 +1,4 @@
 Linked List ---------------1
     Inserting a Node Into a Sorted Doubly Linked List   ---------------1.1
     Reverse a doubly linked list                        ---------------1.2
+    Find Merge Point of Two Lists                       ---------------1.3
