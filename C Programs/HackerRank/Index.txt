@@ -7,3 +7,4 @@ Linked List             ---------------1
 Stacks and Queues       ---------------2
     Balanced Brackets                                   ---------------2.1
     A Tale of Two Stacks                                ---------------2.2
+    Largest Rectangle                                   ---------------2.3
