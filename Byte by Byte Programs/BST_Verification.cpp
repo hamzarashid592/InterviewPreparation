@@ -10,7 +10,7 @@ struct Node
 
 Node *addNodeBST(Node *bst, int value)
 {
-    //Base case
+    // Base case
     if (bst == NULL)
     {
         Node *newNode = new Node;
@@ -21,7 +21,7 @@ Node *addNodeBST(Node *bst, int value)
         return newNode;
     }
 
-    //Recursive calls.
+    // Recursive calls.
 
     if (value > bst->data)
         bst->right = addNodeBST(bst->right, value);
@@ -34,11 +34,11 @@ Node *addNodeBST(Node *bst, int value)
 
 void printTreeInOrder(Node *tree)
 {
-    //Base case.
+    // Base case.
     if (tree == NULL)
         return;
 
-    //Recursive Call.
+    // Recursive Call.
     printTreeInOrder(tree->left);
     cout << tree->data << "\t";
 
@@ -47,11 +47,11 @@ void printTreeInOrder(Node *tree)
 
 void printTreePostOrder(Node *tree)
 {
-    //Base case.
+    // Base case.
     if (tree == NULL)
         return;
 
-    //Recursive Call.
+    // Recursive Call.
     printTreePostOrder(tree->left);
     printTreePostOrder(tree->right);
 
@@ -60,31 +60,31 @@ void printTreePostOrder(Node *tree)
 
 Node *getMaxInBST(Node *tree)
 {
-    //Base case.
+    // Base case.
     if (tree->right == NULL)
         return tree;
 
-    //Recursive Call.
+    // Recursive Call.
     return getMaxInBST(tree->right);
 }
 
 Node *getMinInBST(Node *tree)
 {
-    //Base case.
+    // Base case.
     if (tree->left == NULL)
         return tree;
 
-    //Recursive Call.
+    // Recursive Call.
     return getMinInBST(tree->left);
 }
 
 Node *deleteNodeFromBST(Node *tree, int value)
 {
-    //Base case
+    // Base case
     if (tree == NULL)
         return NULL;
 
-    //Recursive Calls.
+    // Recursive Calls.
     if (value > tree->data)
     {
         tree->right = deleteNodeFromBST(tree->right, value);
@@ -94,37 +94,37 @@ Node *deleteNodeFromBST(Node *tree, int value)
         tree->left = deleteNodeFromBST(tree->left, value);
     }
 
-    //Got the data.
+    // Got the data.
     if (value == tree->data)
     {
-        //Childless node.
+        // Childless node.
         if (tree->left == NULL && tree->right == NULL)
         {
             delete tree;
-            tree = NULL; //To avoid an error while returning.
+            tree = NULL; // To avoid an error while returning.
         }
-        //Left child node.
+        // Left child node.
         if (tree->left != NULL)
         {
             Node *temp = tree;
-            tree = tree->left; //Replacing the node with its single child.
+            tree = tree->left; // Replacing the node with its single child.
             delete temp;
         }
-        //Right child node.
+        // Right child node.
         if (tree->right != NULL)
         {
             Node *temp = tree;
-            tree = tree->right; //Replacing the node with its single child.
+            tree = tree->right; // Replacing the node with its single child.
             delete temp;
         }
-        //Two children node.
+        // Two children node.
         if (tree->right != NULL && tree->left != NULL)
         {
-            //Getting the max in the left subtree.
+            // Getting the max in the left subtree.
             Node *maxNode = getMaxInBST(tree->left);
-            //Replacing the data of the current node with that max node.
+            // Replacing the data of the current node with that max node.
             tree->data = maxNode->data;
-            //Deleting that max node.
+            // Deleting that max node.
             tree->left = deleteNodeFromBST(tree->left, maxNode->data);
         }
     }
@@ -132,10 +132,7 @@ Node *deleteNodeFromBST(Node *tree, int value)
     return tree;
 }
 
-bool isB
-
-    int
-    main()
+int main()
 {
     Node *tree = NULL;
 
